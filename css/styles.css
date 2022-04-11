@@ -1,0 +1,140 @@
+/* colors: 
+pink: #E3C0D3
+darker pink: #A54A7C
+mauve: #95818D
+grey: #576066
+green: #2C514C
+blue: #122932 */
+
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 10px;
+    padding: 5px;
+}
+
+h2 {
+    margin: 16px;
+    background: #2C514C;
+    text-align: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: #2C514C;
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.image-text-mens {
+    background: url("img/workout_mens.jpeg");
+
+}
+
+.select-box {
+display: flex;
+width: 400px;
+flex-direction: column;
+}
+
+.select-box .options-container .men {
+    background-color: #122932;
+}
+
+.select-box .options-container {
+    background: #E3C0D3;
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+
+    order: 1;
+}
+
+.selected .men {
+    background-color: #122932;
+}
+
+.selected  {
+    background: #E3C0D3;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    position: relative;
+
+    order: 0;
+}
+
+.selected::after {
+    content: "";
+    background: url("https://www.svgrepo.com/show/80156/down-arrow.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: 100%;
+    width: 28px;
+    right: 10px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box .option, .selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .options-container.active {
+max-height: 240px;
+opacity: 1;
+overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected::after  {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    /* background: make it darker than the background color of  the .select-box .options container; */
+background: #A54A7C;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+background: #95818D;   /* make this a lighter color than the one above */
+border-radius: 0 8px 8px 0;
+}
+
+.select-box .option:hover {
+    background:#95818D;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
